@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shake-to-Find-Cursor", "Shake-to-Find-Cursor\Shake-to-Find-Cursor.csproj", "{6E6F1710-0E24-499F-8A1E-72F98A38CD66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shake-to-Find-Cursor", "Shake-to-Find-Cursor\Shake-to-Find-Cursor.csproj", "{82CDDE17-C819-44B9-B038-66D52D22B800}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6E6F1710-0E24-499F-8A1E-72F98A38CD66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E6F1710-0E24-499F-8A1E-72F98A38CD66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E6F1710-0E24-499F-8A1E-72F98A38CD66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E6F1710-0E24-499F-8A1E-72F98A38CD66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82CDDE17-C819-44B9-B038-66D52D22B800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82CDDE17-C819-44B9-B038-66D52D22B800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82CDDE17-C819-44B9-B038-66D52D22B800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82CDDE17-C819-44B9-B038-66D52D22B800}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BDB4A8A9-2279-4E2A-8824-9A4F0321DDB5}
+		SolutionGuid = {2A435AE9-5361-42B8-821D-E63158FB3613}
 	EndGlobalSection
 EndGlobal

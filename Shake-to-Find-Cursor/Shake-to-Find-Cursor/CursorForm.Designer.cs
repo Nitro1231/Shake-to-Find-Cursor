@@ -27,7 +27,6 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.EventHandler = new System.Windows.Forms.Timer(this.components);
-            this.MouseFollower = new System.Windows.Forms.Timer(this.components);
             this.CursorBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.CursorBox)).BeginInit();
             this.SuspendLayout();
@@ -37,11 +36,6 @@
             this.EventHandler.Enabled = true;
             this.EventHandler.Interval = 150;
             this.EventHandler.Tick += new System.EventHandler(this.EventHandler_Tick);
-            // 
-            // MouseFollower
-            // 
-            this.MouseFollower.Interval = 10;
-            this.MouseFollower.Tick += new System.EventHandler(this.MouseFollower_Tick);
             // 
             // CursorBox
             // 
@@ -53,16 +47,13 @@
             this.CursorBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.CursorBox.TabIndex = 0;
             this.CursorBox.TabStop = false;
-            this.CursorBox.MouseEnter += new System.EventHandler(this.CursorBox_MouseEnter);
-            this.CursorBox.MouseLeave += new System.EventHandler(this.CursorBox_MouseLeave);
-            this.CursorBox.MouseHover += new System.EventHandler(this.CursorBox_MouseHover);
             // 
             // CursorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(60, 60);
+            this.ClientSize = new System.Drawing.Size(100, 100);
             this.Controls.Add(this.CursorBox);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -83,7 +74,6 @@
 
         private System.Windows.Forms.PictureBox CursorBox;
         private System.Windows.Forms.Timer EventHandler;
-        private System.Windows.Forms.Timer MouseFollower;
     }
 }
 

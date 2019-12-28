@@ -22,6 +22,7 @@ namespace Shake_to_Find_Cursor
 
         private int minRange = 100, maxRange = 500, trigger = 15;
         private int x, y, x1, y1, sumX, sumY, count = 0;
+
         private bool checkX, checkY;
         private void TestTimer_Tick(object sender, EventArgs e) {
             x1 = MousePosition.X;

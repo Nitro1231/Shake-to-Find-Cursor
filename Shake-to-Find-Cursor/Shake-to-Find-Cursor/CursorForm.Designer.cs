@@ -26,8 +26,10 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CursorForm));
             this.EventHandler = new System.Windows.Forms.Timer(this.components);
             this.CursorBox = new System.Windows.Forms.PictureBox();
+            this.Icon = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.CursorBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,6 +50,12 @@
             this.CursorBox.TabIndex = 0;
             this.CursorBox.TabStop = false;
             // 
+            // Icon
+            // 
+            this.Icon.Icon = ((System.Drawing.Icon)(resources.GetObject("Icon.Icon")));
+            this.Icon.Text = "Shake to Find Cursor";
+            this.Icon.Visible = true;
+            // 
             // CursorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -65,6 +73,7 @@
             this.Text = "Cursor";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CursorForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.CursorBox)).EndInit();
             this.ResumeLayout(false);
 
@@ -74,6 +83,7 @@
 
         private System.Windows.Forms.PictureBox CursorBox;
         private System.Windows.Forms.Timer EventHandler;
+        private System.Windows.Forms.NotifyIcon Icon;
     }
 }
 

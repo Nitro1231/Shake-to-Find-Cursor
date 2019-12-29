@@ -12,12 +12,17 @@ namespace Shake_to_Find_Cursor {
 
         public CursorForm() {
             InitializeComponent();
-            Location = new Point(0, 0);
             Opacity = 0;
+            Size = new Size(maxSize, maxSize);
+            Location = new Point(0, 0);
+
             x = MousePosition.X;
             y = MousePosition.Y;
 
             Icon.ContextMenu = setMenu();
+
+            Monitor mt = new Monitor();
+            mt.Show();
         }
 
         private ContextMenu setMenu() {

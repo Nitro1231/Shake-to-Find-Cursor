@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctl\tabButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctl\tabButton.Designer.cs">
+      <DependentUpon>tabButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="CursorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="ctl\tabButton.resx">
+      <DependentUpon>tabButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CursorForm.resx">
       <DependentUpon>CursorForm.cs</DependentUpon>
     </EmbeddedResource>

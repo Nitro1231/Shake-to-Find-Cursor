@@ -12,8 +12,11 @@ namespace Shake_to_Find_Cursor
 {
     public partial class Monitor : Form
     {
+        public static ctl.tabButton info;
         public Monitor() {
             InitializeComponent();
+            info = new ctl.tabButton(Properties.Resources.Cursor, "cc", false);
+            flowLayoutPanel1.Controls.Add(info);
         }
 
         private void Handler_Tick(object sender, EventArgs e) {
@@ -22,6 +25,10 @@ namespace Shake_to_Find_Cursor
 
         private int minRange = 100, maxRange = 500, trigger = 15;
         private int x, y, x1, y1, sumX, sumY, count = 0;
+
+        private void Button1_Click(object sender, EventArgs e) {
+            info.changeTo(true);
+        }
 
         private bool checkX, checkY;
         private void TestTimer_Tick(object sender, EventArgs e) {

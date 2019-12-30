@@ -12,11 +12,24 @@ namespace Shake_to_Find_Cursor
 {
     public partial class Monitor : Form
     {
-        public static ctl.tabButton info;
+        public static ctl.tabButton monitorTab, settingTab, infoTab;
         public Monitor() {
             InitializeComponent();
-            info = new ctl.tabButton(Properties.Resources.Cursor, "cc", false);
-            flowLayoutPanel1.Controls.Add(info);
+            Utils.smoothBorder(this, 10);
+            Utils.smoothBorder(min, min.Width);
+            Utils.smoothBorder(close, close.Width);
+            monitorTab = new ctl.tabButton(Properties.Resources.Cursor, "Monitor", true);
+            settingTab = new ctl.tabButton(Properties.Resources.Cursor, "Setting", false);
+            infoTab = new ctl.tabButton(Properties.Resources.Cursor, "Information", false);
+            tabPanel.Controls.Add(monitorTab);
+            tabPanel.Controls.Add(settingTab);
+            tabPanel.Controls.Add(infoTab);
+        }
+
+        public static void closeTab() {
+            monitorTab.changeTo(false);
+            settingTab.changeTo(false);
+            infoTab.changeTo(false);
         }
 
         private void Handler_Tick(object sender, EventArgs e) {
@@ -25,10 +38,6 @@ namespace Shake_to_Find_Cursor
 
         private int minRange = 100, maxRange = 500, trigger = 15;
         private int x, y, x1, y1, sumX, sumY, count = 0;
-
-        private void Button1_Click(object sender, EventArgs e) {
-            info.changeTo(true);
-        }
 
         private bool checkX, checkY;
         private void TestTimer_Tick(object sender, EventArgs e) {
@@ -47,5 +56,7 @@ namespace Shake_to_Find_Cursor
             x = MousePosition.X;
             y = MousePosition.Y;
         }
+
+        private void ctlMouseMove(object sender, MouseEventArgs e) { Utils.mouseMove(Handle); }
     }
 }

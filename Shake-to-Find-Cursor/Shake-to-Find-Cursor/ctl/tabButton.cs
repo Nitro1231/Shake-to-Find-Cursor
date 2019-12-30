@@ -12,8 +12,9 @@ namespace Shake_to_Find_Cursor.ctl {
             Utils.smoothBorder(BG, BG.Height);
             Utils.smoothBorder(icon, icon.Height);
             textLabel.Text = text;
-            textLabel.Location = new Point(icon.Left + icon.Width + 4, Height / 2 - textLabel.Height / 2);
+            textLabel.Location = new Point(icon.Left + icon.Width + 4, BG.Height / 2 - textLabel.Height / 2);
             w = BG.Left + textLabel.Left + textLabel.Width + 6;
+            changeTo(select);
         }
 
         private void TabButton_Resize(object sender, EventArgs e) {
@@ -27,17 +28,25 @@ namespace Shake_to_Find_Cursor.ctl {
             int a = w - Width, b = Width - Height;
             if (select) {
                 while (Width <= w) {
-                    Width++;
+                    Width += 2;
                     Thread.Sleep(2);
                 }
             } else {
                 while(Width >= Height) {
-                    Width--;
+                    Width -= 2;
                     Thread.Sleep(2);
                 }
             }
         }
 
         public bool getSelected() { return selected; }
+        private void Icon_Click(object sender, EventArgs e) {
+            Monitor.closeTab();
+            changeTo(true);
+        }
+        private void BG_Click(object sender, EventArgs e) {
+            Monitor.closeTab();
+            changeTo(true);
+        }
     }
 }

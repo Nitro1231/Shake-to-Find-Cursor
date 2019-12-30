@@ -26,8 +26,8 @@
         /// </summary>
         private void InitializeComponent() {
             this.BG = new System.Windows.Forms.Panel();
-            this.icon = new System.Windows.Forms.PictureBox();
             this.textLabel = new System.Windows.Forms.Label();
+            this.icon = new System.Windows.Forms.PictureBox();
             this.BG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
             this.SuspendLayout();
@@ -41,6 +41,18 @@
             this.BG.Name = "BG";
             this.BG.Size = new System.Drawing.Size(36, 36);
             this.BG.TabIndex = 0;
+            this.BG.Click += new System.EventHandler(this.BG_Click);
+            // 
+            // textLabel
+            // 
+            this.textLabel.AutoSize = true;
+            this.textLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLabel.ForeColor = System.Drawing.Color.White;
+            this.textLabel.Location = new System.Drawing.Point(40, 2);
+            this.textLabel.Name = "textLabel";
+            this.textLabel.Size = new System.Drawing.Size(47, 26);
+            this.textLabel.TabIndex = 1;
+            this.textLabel.Text = "text";
             // 
             // icon
             // 
@@ -50,17 +62,7 @@
             this.icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.icon.TabIndex = 0;
             this.icon.TabStop = false;
-            // 
-            // textLabel
-            // 
-            this.textLabel.AutoSize = true;
-            this.textLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textLabel.ForeColor = System.Drawing.Color.White;
-            this.textLabel.Location = new System.Drawing.Point(51, 18);
-            this.textLabel.Name = "textLabel";
-            this.textLabel.Size = new System.Drawing.Size(47, 26);
-            this.textLabel.TabIndex = 1;
-            this.textLabel.Text = "text";
+            this.icon.Click += new System.EventHandler(this.Icon_Click);
             // 
             // tabButton
             // 

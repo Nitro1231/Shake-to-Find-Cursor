@@ -25,13 +25,14 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Monitor));
             this.Handler = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.testTimer = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.min = new System.Windows.Forms.Panel();
             this.close = new System.Windows.Forms.Panel();
+            this.min = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.topPanel.SuspendLayout();
@@ -70,33 +71,35 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.topPanel.Controls.Add(this.min);
             this.topPanel.Controls.Add(this.close);
+            this.topPanel.Controls.Add(this.min);
             this.topPanel.Controls.Add(this.label3);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
-            this.topPanel.Size = new System.Drawing.Size(701, 24);
+            this.topPanel.Size = new System.Drawing.Size(600, 24);
             this.topPanel.TabIndex = 2;
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ctlMouseMove);
             // 
-            // min
-            // 
-            this.min.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.min.Location = new System.Drawing.Point(4, 4);
-            this.min.Margin = new System.Windows.Forms.Padding(4, 4, 2, 0);
-            this.min.Name = "min";
-            this.min.Size = new System.Drawing.Size(16, 16);
-            this.min.TabIndex = 4;
-            // 
             // close
             // 
-            this.close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(159)))), ((int)(((byte)(31)))));
-            this.close.Location = new System.Drawing.Point(24, 4);
-            this.close.Margin = new System.Windows.Forms.Padding(2, 4, 0, 0);
+            this.close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.close.Location = new System.Drawing.Point(4, 4);
+            this.close.Margin = new System.Windows.Forms.Padding(4, 4, 2, 0);
             this.close.Name = "close";
             this.close.Size = new System.Drawing.Size(16, 16);
-            this.close.TabIndex = 5;
+            this.close.TabIndex = 4;
+            this.close.Click += new System.EventHandler(this.close_Click);
+            // 
+            // min
+            // 
+            this.min.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(159)))), ((int)(((byte)(31)))));
+            this.min.Location = new System.Drawing.Point(24, 4);
+            this.min.Margin = new System.Windows.Forms.Padding(2, 4, 0, 0);
+            this.min.Name = "min";
+            this.min.Size = new System.Drawing.Size(16, 16);
+            this.min.TabIndex = 5;
+            this.min.Click += new System.EventHandler(this.Min_Click);
             // 
             // label3
             // 
@@ -113,7 +116,7 @@
             this.tabPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabPanel.Location = new System.Drawing.Point(0, 24);
             this.tabPanel.Name = "tabPanel";
-            this.tabPanel.Size = new System.Drawing.Size(701, 44);
+            this.tabPanel.Size = new System.Drawing.Size(600, 44);
             this.tabPanel.TabIndex = 4;
             this.tabPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ctlMouseMove);
             // 
@@ -122,7 +125,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(701, 370);
+            this.ClientSize = new System.Drawing.Size(600, 350);
             this.Controls.Add(this.tabPanel);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.label2);
@@ -130,9 +133,11 @@
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Monitor";
             this.Text = "Monitor";
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ctlMouseMove);
+            this.Resize += new System.EventHandler(this.Monitor_Resize);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -146,8 +151,8 @@
         private System.Windows.Forms.Timer testTimer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel topPanel;
-        private System.Windows.Forms.Panel min;
         private System.Windows.Forms.Panel close;
+        private System.Windows.Forms.Panel min;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.FlowLayoutPanel tabPanel;
     }

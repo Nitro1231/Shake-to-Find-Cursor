@@ -28,25 +28,22 @@ namespace Shake_to_Find_Cursor.ctl {
             int a = w - Width, b = Width - Height;
             if (select) {
                 while (Width <= w) {
-                    Width += 2;
+                    Width += 4;
                     Thread.Sleep(2);
                 }
             } else {
                 while(Width >= Height) {
-                    Width -= 2;
+                    Width -= 4;
                     Thread.Sleep(2);
                 }
             }
         }
 
         public bool getSelected() { return selected; }
-        private void Icon_Click(object sender, EventArgs e) {
-            Monitor.closeTab();
-            changeTo(true);
-        }
         private void BG_Click(object sender, EventArgs e) {
             Monitor.closeTab();
             changeTo(true);
+            CursorForm.mt.closeAnimation(true);
         }
     }
 }

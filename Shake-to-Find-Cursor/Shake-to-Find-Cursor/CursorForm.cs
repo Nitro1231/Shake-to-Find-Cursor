@@ -9,6 +9,7 @@ namespace Shake_to_Find_Cursor {
         public int maxSize = 80, minRange = 30, maxRange = 150, trigger = 3;
         public int x, y, x1, y1, sumX, sumY, count;
         public bool checkX, checkY;
+        public static Monitor mt;
 
         public CursorForm() {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace Shake_to_Find_Cursor {
 
             Icon.ContextMenu = setMenu();
 
-            Monitor mt = new Monitor();
+            mt = new Monitor();
             mt.Show();
         }
 

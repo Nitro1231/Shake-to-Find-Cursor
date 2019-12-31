@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,8 +17,8 @@ namespace Shake_to_Find_Cursor
         public Monitor() {
             InitializeComponent();
             Utils.smoothBorder(this, 10);
-            Utils.smoothBorder(min, min.Width);
             Utils.smoothBorder(close, close.Width);
+            Utils.smoothBorder(min, min.Width);
             monitorTab = new ctl.tabButton(Properties.Resources.Cursor, "Monitor", true);
             settingTab = new ctl.tabButton(Properties.Resources.Cursor, "Setting", false);
             infoTab = new ctl.tabButton(Properties.Resources.Cursor, "Information", false);
@@ -30,15 +31,31 @@ namespace Shake_to_Find_Cursor
             monitorTab.changeTo(false);
             settingTab.changeTo(false);
             infoTab.changeTo(false);
+            CursorForm.mt.closeAnimation(false);
+        }
+
+        public void closeAnimation(bool close) {
+            if (close) {
+                while (CursorForm.mt.Height <= 350) {
+                    CursorForm.mt.Height += 10;
+                    Thread.Sleep(2);
+                    CursorForm.mt.Refresh();
+                }
+            } else {
+                while(CursorForm.mt.Height >= CursorForm.mt.tabPanel.Height + CursorForm.mt.tabPanel.Top + 4) {
+                    CursorForm.mt.Height -= 10;
+                    Thread.Sleep(2);
+                    CursorForm.mt.Refresh();
+                }
+            }
         }
 
         private void Handler_Tick(object sender, EventArgs e) {
             label1.Text = $"Mouse Position \nX: {MousePosition.X}\nY: {MousePosition.Y}";
         }
 
-        private int minRange = 100, maxRange = 500, trigger = 15;
+        private int minRange = 100, maxRange = 500;
         private int x, y, x1, y1, sumX, sumY, count = 0;
-
         private bool checkX, checkY;
         private void TestTimer_Tick(object sender, EventArgs e) {
             x1 = MousePosition.X;
@@ -57,6 +74,12 @@ namespace Shake_to_Find_Cursor
             y = MousePosition.Y;
         }
 
+        private void close_Click(object sender, EventArgs e) { Close(); }
+        private void Min_Click(object sender, EventArgs e) { WindowState = FormWindowState.Minimized; }
         private void ctlMouseMove(object sender, MouseEventArgs e) { Utils.mouseMove(Handle); }
+        private void Monitor_Resize(object sender, EventArgs e) {
+            Utils.smoothBorder(this, 10);
+            Refresh();
+        }
     }
 }

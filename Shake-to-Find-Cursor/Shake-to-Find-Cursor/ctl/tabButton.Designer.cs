@@ -62,7 +62,7 @@
             this.icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.icon.TabIndex = 0;
             this.icon.TabStop = false;
-            this.icon.Click += new System.EventHandler(this.Icon_Click);
+            this.icon.Click += new System.EventHandler(this.BG_Click);
             // 
             // tabButton
             // 

@@ -5,8 +5,6 @@ using System.Windows.Forms;
 
 namespace Shake_to_Find_Cursor {
     public partial class CursorForm : Form {
-        public bool functionEnabled = true;
-        public int maxSize = 80, minRange = 30, maxRange = 150, trigger = 3;
         public int x, y, x1, y1, sumX, sumY, count;
         public bool checkX, checkY;
         public static Monitor mt;
@@ -14,7 +12,7 @@ namespace Shake_to_Find_Cursor {
         public CursorForm() {
             InitializeComponent();
             Opacity = 0;
-            Size = new Size(maxSize, maxSize);
+            Size = new Size(Setting.maxSize, Setting.maxSize);
             Location = new Point(0, 0);
 
             x = MousePosition.X;
@@ -28,7 +26,7 @@ namespace Shake_to_Find_Cursor {
 
         private ContextMenu setMenu() {
             ContextMenu ctx = new ContextMenu();
-            if (functionEnabled)
+            if (Setting.functionEnabled)
                 ctx.MenuItems.Add(new MenuItem("Disable", funcDisable));
             else
                 ctx.MenuItems.Add(new MenuItem("Enable", funcEnable));
@@ -39,13 +37,13 @@ namespace Shake_to_Find_Cursor {
 
         private void funcDisable(object sender, EventArgs e) {
             EventHandler.Enabled = false;
-            functionEnabled = false;
+            Setting.functionEnabled = false;
             Icon.ContextMenu = setMenu();
         }
 
         private void funcEnable(object sender, EventArgs e) {
             EventHandler.Enabled = true;
-            functionEnabled = true;
+            Setting.functionEnabled = true;
             Icon.ContextMenu = setMenu();
         }
 
@@ -60,23 +58,23 @@ namespace Shake_to_Find_Cursor {
             sumX = Math.Abs(x - x1);
             sumY = Math.Abs(y - y1);
 
-            if (sumX > minRange && sumX < maxRange) checkX = true; else checkX = false;
-            if (sumY > minRange && sumY < maxRange) checkY = true; else checkY = false;
+            if (sumX > Setting.minRange && sumX < Setting.maxRange) checkX = true; else checkX = false;
+            if (sumY > Setting.minRange && sumY < Setting.maxRange) checkY = true; else checkY = false;
             if (checkX && checkY) count++; else count = 0;
-            if (count >= trigger) {
+            if (count >= Setting.trigger) {
                 Cursor.Hide();
                 Opacity = 1;
-                while (CursorBox.Width <= maxSize) {
+                while (CursorBox.Width <= Setting.maxSize) {
                     CursorBox.Width++;
                     CursorBox.Height++;
-                    Location = new Point(MousePosition.X - (15 + 15 * CursorBox.Width / maxSize), MousePosition.Y - (10 + 10 * CursorBox.Height / maxSize));
+                    Location = new Point(MousePosition.X - (15 + 15 * CursorBox.Width / Setting.maxSize), MousePosition.Y - (10 + 10 * CursorBox.Height / Setting.maxSize));
                     Refresh();
                     Thread.Sleep(10);
                 }
                 while (CursorBox.Width >= 32) {
                     CursorBox.Width--;
                     CursorBox.Height--;
-                    Location = new Point(MousePosition.X - (15 + 15 * CursorBox.Width / maxSize), MousePosition.Y - (10 + 10 * CursorBox.Height / maxSize));
+                    Location = new Point(MousePosition.X - (15 + 15 * CursorBox.Width / Setting.maxSize), MousePosition.Y - (10 + 10 * CursorBox.Height / Setting.maxSize));
                     Refresh();
                     Thread.Sleep(10);
                 }

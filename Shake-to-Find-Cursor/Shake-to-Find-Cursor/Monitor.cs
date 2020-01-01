@@ -19,9 +19,9 @@ namespace Shake_to_Find_Cursor
             Utils.smoothBorder(this, 10);
             Utils.smoothBorder(close, close.Width);
             Utils.smoothBorder(min, min.Width);
-            monitorTab = new ctl.tabButton(Properties.Resources.Cursor, "Monitor", true);
-            settingTab = new ctl.tabButton(Properties.Resources.Cursor, "Setting", false);
-            infoTab = new ctl.tabButton(Properties.Resources.Cursor, "Information", false);
+            monitorTab = new ctl.tabButton(Properties.Resources.Combo_Chart, "Monitor", true);
+            settingTab = new ctl.tabButton(Properties.Resources.Settings, "Setting", false);
+            infoTab = new ctl.tabButton(Properties.Resources.Information, "Information", false);
             tabPanel.Controls.Add(monitorTab);
             tabPanel.Controls.Add(settingTab);
             tabPanel.Controls.Add(infoTab);
@@ -35,18 +35,22 @@ namespace Shake_to_Find_Cursor
         }
 
         public void closeAnimation(bool close) {
+            if (!Setting.animation)
+                return;
             if (close) {
-                while (CursorForm.mt.Height <= 350) {
-                    CursorForm.mt.Height += 10;
+                while (CursorForm.mt.Height <= 350 - Setting.animationSpeed * 5) {
+                    CursorForm.mt.Height += Setting.animationSpeed * 5;
                     Thread.Sleep(2);
                     CursorForm.mt.Refresh();
                 }
+                CursorForm.mt.Height = 350;
             } else {
-                while(CursorForm.mt.Height >= CursorForm.mt.tabPanel.Height + CursorForm.mt.tabPanel.Top + 4) {
-                    CursorForm.mt.Height -= 10;
+                while(CursorForm.mt.Height >= CursorForm.mt.tabPanel.Height + CursorForm.mt.tabPanel.Top + 4 + Setting.animationSpeed * 5) {
+                    CursorForm.mt.Height -= Setting.animationSpeed * 5;
                     Thread.Sleep(2);
                     CursorForm.mt.Refresh();
                 }
+                CursorForm.mt.Height = CursorForm.mt.tabPanel.Height + CursorForm.mt.tabPanel.Top + 4;
             }
         }
 

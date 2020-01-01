@@ -11,6 +11,7 @@ namespace Shake_to_Find_Cursor.ctl {
             InitializeComponent();
             Utils.smoothBorder(BG, BG.Height);
             Utils.smoothBorder(icon, icon.Height);
+            icon.Image = img;
             textLabel.Text = text;
             textLabel.Location = new Point(icon.Left + icon.Width + 4, BG.Height / 2 - textLabel.Height / 2);
             w = BG.Left + textLabel.Left + textLabel.Width + 6;
@@ -25,17 +26,18 @@ namespace Shake_to_Find_Cursor.ctl {
 
         public void changeTo(bool select) {
             selected = select;
-            int a = w - Width, b = Width - Height;
             if (select) {
-                while (Width <= w) {
-                    Width += 4;
+                while (Setting.animation && Width <= w - Setting.animationSpeed) {
+                    Width += Setting.animationSpeed;
                     Thread.Sleep(2);
                 }
+                Width = w;
             } else {
-                while(Width >= Height) {
-                    Width -= 4;
+                while(Setting.animation && Width >= Height + Setting.animationSpeed) {
+                    Width -= Setting.animationSpeed;
                     Thread.Sleep(2);
                 }
+                Width = Height;
             }
         }
 
